@@ -1,9 +1,15 @@
-# Conceitos do ElasticSearch
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://upload.wikimedia.org/wikipedia/commons/f/f4/Elasticsearch_logo.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
 
+# Conceitos do ElasticSearch
+Principais conceitos do ES, descritos, de acordo com a progressão do curso.
 ## Analogia ao um banco de dados
 - Cluster: Banco de dados
 - Índices: Tabelas
 - Documentos: Linhas de uma tabelas
+  - Documentos não podem ser alterados, apenas atualizados. Podemos utilizar a reescrita, reinserindo a informação ou atualizando ela. Na qual trata-se como uma nova versão.
 
 ## Índice Invertido
 
@@ -51,3 +57,19 @@ Os índices são divididos em shards, eles podem estar em diferentes nós de clu
 Pode haver shard primários e réplicas. Na qual o shard primário recebe as escritas e então réplicadas. E na requisição de leitura, pode ir para o shard primário e réplicas.
 
 **A quantidade de shards primários não pode ser alterada posteriormente.**
+
+## Inserção no ES
+As inserções no ElasticSearch, pode ser feita em três maneiras:
+
++ RESTFul API
+  + Elasticsearch functiona através de requisições http e dados em JSON.
+  + Qualquer linguagem de programação pode fazer requisições e analisar o resultado.
+  + Importante entender que aliberação dele, se deu as configurações feitas anteriormente.
+
++ API’s clientes
+  + Muitas linguagens tem bibliotecas específicas para tornar o uso do Elasticsearch ainda mais fácil.
+
++ Ferramentas Analíticas
+  + Interfaces Gráficas Web permitem que você consulte os índices e explore os dados sem precisar escrever código.
+  + Kibana
+
