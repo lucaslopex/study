@@ -95,4 +95,4 @@ No exemplo está em busca da ID **109487**, no index **movies**.
 ```bash
 curl -XGET 127.0.0.1:9200/movies/_search?pretty
 ```
-Neste caso vamos exibir tudo que está escrito no index **movies**.
+Neste caso vamos exibir tudo que está escrito no index **movies**
