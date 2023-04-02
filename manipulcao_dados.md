@@ -96,3 +96,8 @@ No exemplo está em busca da ID **109487**, no index **movies**.
 curl -XGET 127.0.0.1:9200/movies/_search?pretty
 ```
 Neste caso vamos exibir tudo que está escrito no index **movies**
+## Exclusão de dados
+Para excluir os dados será utilizado o **XDELETE**.
+```BASH
+curl -XDELETE 127.0.0.1:9200/movies/_doc/58559
+```
