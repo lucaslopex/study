@@ -101,3 +101,31 @@ Para excluir os dados será utilizado o **XDELETE**.
 ```BASH
 curl -XDELETE 127.0.0.1:9200/movies/_doc/58559
 ```
+## Concorrências
+As concorrências se dão a dois clientes tentando escrever no mesmo documento.
+
+O ES pode tratar esse problema da seguinte forma:
+
++ Pode usar o número de sequência quando faz a consulta.
++ Pode usar o número de sequência com *primary_term*.
++ Pode utilizar *retry_on_conflicts*, na qual quando der concorrência ele vai dá erro, porém, ele vai tentar escrever novamente depois.
+
+Exemplo para teste destas formas são as seguintes:
+**retry_on_conflict** com o update
+```bash
+curl -XPOST 127.0.0.1:9200/movies/_update/109487?retry_on_conflict=5 -d '
+{
+"doc":{
+"title" : "Interestellar tested"
+}
+}'
+```
+Usando a sequência e o termo primário
+```bash
+curl -XPUT "127.0.0.1:9200/movies/_doc/109487?if_seq_no=12&if_primary_term=2" -d '
+{
+"genres" : ["IMAX", "Sci-Fi"],
+"title" : "Interestellar Foo",
+"year" : 2014
+}'
+```
